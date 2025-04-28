@@ -1,5 +1,6 @@
 import json
 import os
+import unittest
 
 class TodoList:
     def __init__(self):
@@ -104,5 +105,59 @@ def main():
         else:
             print("Invalid choice. Please try again.")
 
+# Unit Tests
+class TestTodoList(unittest.TestCase):
+    def setUp(self):
+        """Set up test environment before each test"""
+        self.todo = TodoList()
+        self.todo.filename = "test_tasks.json"  # Use a test file
+        if os.path.exists(self.todo.filename):
+            os.remove(self.todo.filename)
+
+    def tearDown(self):
+        """Clean up after each test"""
+        if os.path.exists(self.todo.filename):
+            os.remove(self.todo.filename)
+
+    def test_add_task(self):
+        """Test adding a new task"""
+        self.todo.add_task("Test task")
+        self.assertEqual(len(self.todo.tasks), 1)
+        self.assertEqual(self.todo.tasks[0]["task"], "Test task")
+        self.assertFalse(self.todo.tasks[0]["completed"])
+
+    def test_view_empty_tasks(self):
+        """Test viewing tasks when list is empty"""
+        self.todo.view_tasks()  # Should not raise an exception
+
+    def test_mark_complete(self):
+        """Test marking a task as complete"""
+        self.todo.add_task("Test task")
+        self.todo.mark_complete("1")
+        self.assertTrue(self.todo.tasks[0]["completed"])
+
+    def test_delete_task(self):
+        """Test deleting a task"""
+        self.todo.add_task("Task 1")
+        self.todo.add_task("Task 2")
+        initial_length = len(self.todo.tasks)
+        self.todo.delete_task("1")
+        self.assertEqual(len(self.todo.tasks), initial_length - 1)
+
+    def test_invalid_task_number(self):
+        """Test handling of invalid task numbers"""
+        self.todo.add_task("Test task")
+        # Test with non-existent task number
+        self.todo.mark_complete("999")
+        self.todo.delete_task("999")
+        # Test with invalid input
+        self.todo.mark_complete("invalid")
+        self.todo.delete_task("invalid")
+
 if __name__ == "__main__":
-    main() 
+    # If running tests
+    if os.environ.get('PYTHON_UNITTEST') == '1':
+        unittest.main()
+    else:
+        # Run the normal application
+        main() 
