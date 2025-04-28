@@ -1,11 +1,17 @@
+import json
+import os
+
 class TodoList:
     def __init__(self):
         self.tasks = []
+        self.filename = "tasks.json"
+        self.load_tasks()  # Bug: This will fail if file doesn't exist
 
     def add_task(self, task):
         """Add a new task to the list"""
         self.tasks.append({"task": task, "completed": False})
         print(f"Task added: {task}")
+        self.save_tasks()
 
     def view_tasks(self):
         """Display all tasks in the list"""
@@ -25,6 +31,7 @@ class TodoList:
             if 0 <= task_index < len(self.tasks):
                 self.tasks[task_index]["completed"] = True
                 print(f"Task '{self.tasks[task_index]['task']}' marked as complete!")
+                self.save_tasks()
             else:
                 print("Invalid task number!")
         except ValueError:
@@ -37,10 +44,21 @@ class TodoList:
             if 0 <= task_index < len(self.tasks):
                 deleted_task = self.tasks.pop(task_index)
                 print(f"Task '{deleted_task['task']}' deleted successfully!")
+                self.save_tasks()
             else:
                 print("Invalid task number!")
         except ValueError:
             print("Please enter a valid number!")
+
+    def save_tasks(self):
+        """Save tasks to a JSON file"""
+        with open(self.filename, 'w') as f:
+            json.dump(self.tasks, f)
+
+    def load_tasks(self):
+        """Load tasks from a JSON file"""
+        with open(self.filename, 'r') as f:
+            self.tasks = json.load(f)  # Bug: Will raise FileNotFoundError if file doesn't exist
 
 def main():
     todo_list = TodoList()
