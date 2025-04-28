@@ -7,6 +7,7 @@ A simple command-line To-Do List application written in Python.
 - View all tasks with their completion status
 - Mark tasks as complete
 - Delete tasks from the list
+- Task persistence (saves tasks between sessions)
 - Simple command-line interface
 - Error handling for invalid inputs
 
@@ -29,14 +30,17 @@ Run the application using:
 python todo_list.py
 ```
 
+Your tasks will be automatically saved to `tasks.json` in the same directory.
+
 ## Current Limitations
-- Tasks are not persisted between sessions
+- None! All basic features are now implemented
 
 ## Future Enhancements
-- Add task persistence
 - Add unit tests
 - Add task categories
 - Add due dates for tasks
+- Add task priorities
+- Add search functionality
 
 ## Contributing
 Feel free to submit issues and enhancement requests! 
