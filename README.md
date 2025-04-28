@@ -95,8 +95,3 @@ The application is designed to run in any terminal environment:
 3. Run the application using `python todo_list.py`
 4. Your tasks will be automatically saved to `tasks.json` in the same directory
 
-## Contributing
-Feel free to submit issues and enhancement requests! 
-
-## License
-This project is open source and available under the MIT License. 
