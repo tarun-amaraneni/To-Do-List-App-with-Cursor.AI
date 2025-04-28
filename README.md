@@ -17,19 +17,15 @@ A simple command-line To-Do List application written in Python that helps you ma
 - No additional dependencies required
 
 ## Installation
-1. Clone this repository:
+1. clone the project from your repository/folder and navigate by using
    ```bash
-   git clone https://github.com/tarun-amaraneni/To-Do-List-App-with-Cursor.AI.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd To-Do-List-App-with-Cursor.AI
+   cd todo_list.py
    ```
 
 ## Usage
 Run the application using:
 ```bash
-python todo_list.py
+python3 todo_list.py
 ```
 
 The application will present you with a menu of options:
