@@ -14,6 +14,20 @@ class TodoList:
         print(f"Task added: {task}")
         self.save_tasks()
 
+    def edit_task(self, task_number, new_task):
+        """Edit an existing task"""
+        try:
+            task_index = int(task_number) - 1
+            if 0 <= task_index < len(self.tasks):
+                old_task = self.tasks[task_index]["task"]
+                self.tasks[task_index]["task"] = new_task
+                print(f"Task '{old_task}' updated to '{new_task}'")
+                self.save_tasks()
+            else:
+                print("Invalid task number!")
+        except ValueError:
+            print("Please enter a valid number!")
+
     def view_tasks(self):
         """Display all tasks in the list"""
         if not self.tasks:
@@ -80,9 +94,10 @@ def main():
         print("2. View Tasks")
         print("3. Mark Task as Complete")
         print("4. Delete Task")
-        print("5. Exit")
+        print("5. Edit Task")
+        print("6. Exit")
         
-        choice = input("\nEnter your choice (1-5): ")
+        choice = input("\nEnter your choice (1-6): ")
         
         if choice == "1":
             task = input("Enter the task: ")
@@ -100,12 +115,21 @@ def main():
                 task_num = input("Enter task number to delete: ")
                 todo_list.delete_task(task_num)
         elif choice == "5":
+            todo_list.view_tasks()
+            if todo_list.tasks:
+                task_num = input("Enter task number to edit: ")
+                new_task = input("Enter new task description: ")
+                todo_list.edit_task(task_num, new_task)
+        elif choice == "6":
             print("Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
 
-# Unit Tests
+# 
+# 
+# 
+# Tests
 class TestTodoList(unittest.TestCase):
     def setUp(self):
         """Set up test environment before each test"""
@@ -124,6 +148,13 @@ class TestTodoList(unittest.TestCase):
         self.todo.add_task("Test task")
         self.assertEqual(len(self.todo.tasks), 1)
         self.assertEqual(self.todo.tasks[0]["task"], "Test task")
+        self.assertFalse(self.todo.tasks[0]["completed"])
+
+    def test_edit_task(self):
+        """Test editing a task"""
+        self.todo.add_task("Original task")
+        self.todo.edit_task("1", "Updated task")
+        self.assertEqual(self.todo.tasks[0]["task"], "Updated task")
         self.assertFalse(self.todo.tasks[0]["completed"])
 
     def test_view_empty_tasks(self):
@@ -150,9 +181,11 @@ class TestTodoList(unittest.TestCase):
         # Test with non-existent task number
         self.todo.mark_complete("999")
         self.todo.delete_task("999")
+        self.todo.edit_task("999", "New task")
         # Test with invalid input
         self.todo.mark_complete("invalid")
         self.todo.delete_task("invalid")
+        self.todo.edit_task("invalid", "New task")
 
 if __name__ == "__main__":
     # If running tests
