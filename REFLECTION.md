@@ -77,10 +77,3 @@ Several refinement prompts were used to improve the code:
    - Proper documentation
    - Maintainable code structure
 
-## Future Improvements
-
-1. Add task categories
-2. Implement due dates
-3. Add task priorities
-4. Add search functionality
-5. Implement task sorting 
