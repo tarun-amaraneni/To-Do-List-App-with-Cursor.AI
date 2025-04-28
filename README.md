@@ -67,22 +67,49 @@ The application will present you with a menu of options:
    Enter task number to delete: 1
    Task 'Buy groceries' deleted successfully!
    ```
-
 ## Running Unit Tests
-The application includes built-in unit tests. To run the tests:
+The application includes built-in unit tests
 
-1. Set the environment variable for testing:
-   ```bash
-   export PYTHON_UNITTEST=1
-   ```
-
-2. Run the application:
-   ```bash
-   python3 todo_list.py
-   ```
-
-The tests will automatically execute and show the results.
-
+Test Case 1: Adding Tasks
+```
+This test verifies:
+Task is successfully added
+Task count is correct
+Task content is correct
+Task is initially not completed
+ ```
+Test Case 2: Viewing Empty List
+```
+This test ensures:
+Application doesn't crash when viewing empty list
+Empty list is handled gracefully
+```
+Test Case 3: Marking Tasks Complete
+```
+This test checks:
+Task can be marked as complete
+Task status changes correctly
+Task remains in the list
+```
+Test Case 4: Deleting Tasks
+```
+This test verifies:
+Task is successfully deleted
+List length decreases correctly
+Remaining tasks are preserved
+```
+Test Case 5: Invalid Input Handling
+```
+This test ensures:
+Application handles non-existent task numbers
+Application handles invalid input (non-numeric)
+No crashes occur with invalid inputs
+```
+## To run these tests, you use:
+```
+export PYTHON_UNITTEST=1
+python3 todo_list.py
+```
 ## Deployment
 The application is designed to run in any terminal environment:
 
