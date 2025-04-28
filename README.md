@@ -33,39 +33,50 @@ The application will present you with a menu of options:
 2. View Tasks
 3. Mark Task as Complete
 4. Delete Task
-5. Exit
+5. Edit Task
+6. Exit
 
 ### Example Usage
 1. Adding a task:
    ```
-   Enter your choice (1-5): 1
+   Enter your choice (1-6): 1
    Enter the task: Buy groceries
    Task added: Buy groceries
    ```
 
 2. Viewing tasks:
    ```
-   Enter your choice (1-5): 2
+   Enter your choice (1-6): 2
    Current Tasks:
    1. [ ] Buy groceries
    ```
 
 3. Marking a task as complete:
    ```
-   Enter your choice (1-5): 3
+   Enter your choice (1-6): 3
    Current Tasks:
    1. [ ] Buy groceries
    Enter task number to mark as complete: 1
    Task 'Buy groceries' marked as complete!
    ```
 
-4. Deleting a task:
+4. Editing a task:
    ```
-   Enter your choice (1-5): 4
+   Enter your choice (1-6): 5
    Current Tasks:
    1. [✓] Buy groceries
+   Enter task number to edit: 1
+   Enter new task description: Buy groceries and fruits
+   Task 'Buy groceries' updated to 'Buy groceries and fruits'
+   ```
+
+5. Deleting a task:
+   ```
+   Enter your choice (1-6): 4
+   Current Tasks:
+   1. [✓] Buy groceries and fruits
    Enter task number to delete: 1
-   Task 'Buy groceries' deleted successfully!
+   Task 'Buy groceries and fruits' deleted successfully!
    ```
 ## Running Unit Tests
 The application includes built-in unit tests
