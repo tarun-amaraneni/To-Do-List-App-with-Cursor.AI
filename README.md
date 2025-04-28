@@ -2,10 +2,13 @@
 
 A simple command-line To-Do List application written in Python.
 
-## Features (Version 1.0)
+## Features (Version 1.1)
 - Add new tasks to the list
 - View all tasks with their completion status
+- Mark tasks as complete
+- Delete tasks from the list
 - Simple command-line interface
+- Error handling for invalid inputs
 
 ## Requirements
 - Python 3.x
@@ -22,11 +25,9 @@ python todo_list.py
 
 ## Current Limitations
 - Tasks are not persisted between sessions
-- No ability to mark tasks as complete
-- No ability to delete tasks
 
 ## Future Enhancements
-- Add task completion functionality
-- Implement task deletion
 - Add task persistence
-- Add unit tests 
+- Add unit tests
+- Add task categories
+- Add due dates for tasks 
