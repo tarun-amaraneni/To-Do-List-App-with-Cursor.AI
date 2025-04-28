@@ -78,9 +78,11 @@ def main():
         print("\n=== To-Do List Menu ===")
         print("1. Add Task")
         print("2. View Tasks")
-        print("3. Exit")
+        print("3. Mark Task as Complete")
+        print("4. Delete Task")
+        print("5. Exit")
         
-        choice = input("\nEnter your choice (1-3): ")
+        choice = input("\nEnter your choice (1-5): ")
         
         if choice == "1":
             task = input("Enter the task: ")
@@ -88,6 +90,16 @@ def main():
         elif choice == "2":
             todo_list.view_tasks()
         elif choice == "3":
+            todo_list.view_tasks()
+            if todo_list.tasks:
+                task_num = input("Enter task number to mark as complete: ")
+                todo_list.mark_complete(task_num)
+        elif choice == "4":
+            todo_list.view_tasks()
+            if todo_list.tasks:
+                task_num = input("Enter task number to delete: ")
+                todo_list.delete_task(task_num)
+        elif choice == "5":
             print("Goodbye!")
             break
         else:
