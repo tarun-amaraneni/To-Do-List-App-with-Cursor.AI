@@ -82,7 +82,7 @@ The application includes built-in unit tests. To run the tests:
 
 2. Run the application:
    ```bash
-   python todo_list.py
+   python3 todo_list.py
    ```
 
 The tests will automatically execute and show the results.
@@ -92,6 +92,6 @@ The application is designed to run in any terminal environment:
 
 1. Open your terminal
 2. Navigate to the project directory
-3. Run the application using `python todo_list.py`
+3. Run the application using `python3 todo_list.py`
 4. Your tasks will be automatically saved to `tasks.json` in the same directory
 
