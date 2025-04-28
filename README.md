@@ -2,22 +2,23 @@
 
 A simple command-line To-Do List application written in Python.
 
-## Features (Version 1.3)
+## Features
 - Add new tasks to the list
 - View all tasks with their completion status
-- Mark tasks as complete
-- Delete tasks from the list
-- Task persistence (saves tasks between sessions)
-- Comprehensive unit tests
 - Simple command-line interface
-- Error handling for invalid inputs
 
 ## Requirements
 - Python 3.x
 
 ## Installation
-1. Clone this repository
-2. Navigate to the project directory
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/tarun-amaraneni/To-Do-List-App-with-Cursor.AI.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd To-Do-List-App-with-Cursor.AI
+   ```
 
 ## Usage
 Run the application using:
@@ -25,28 +26,16 @@ Run the application using:
 python todo_list.py
 ```
 
-## Running Tests
-To run the unit tests:
-```bash
-PYTHON_UNITTEST=1 python todo_list.py
-```
-
-## Development Process
-This project was developed incrementally with the following commits:
-1. Initial basic functionality (add/view tasks)
-2. Added task completion and deletion
-3. Implemented task persistence
-4. Fixed file handling bugs
-5. Added comprehensive unit tests
-
-See [REFLECTION.md](REFLECTION.md) for detailed development process and prompts used.
-
 ## Current Limitations
-- None! All basic features are now implemented
+- No ability to mark tasks as complete
+- No ability to delete tasks
+- Tasks are not persisted between sessions
 
 ## Future Enhancements
-- Add task categories
-- Implement due dates
-- Add task priorities
-- Add search functionality
-- Implement task sorting 
+- Add task completion functionality
+- Implement task deletion
+- Add task persistence
+- Add unit tests
+
+## Contributing
+Feel free to submit issues and enhancement requests! 
