@@ -5,7 +5,7 @@ class TodoList:
     def __init__(self):
         self.tasks = []
         self.filename = "tasks.json"
-        self.load_tasks()  # Bug: This will fail if file doesn't exist
+        self.load_tasks()
 
     def add_task(self, task):
         """Add a new task to the list"""
@@ -57,8 +57,18 @@ class TodoList:
 
     def load_tasks(self):
         """Load tasks from a JSON file"""
-        with open(self.filename, 'r') as f:
-            self.tasks = json.load(f)  # Bug: Will raise FileNotFoundError if file doesn't exist
+        try:
+            if os.path.exists(self.filename):
+                with open(self.filename, 'r') as f:
+                    self.tasks = json.load(f)
+            else:
+                # Create an empty tasks file if it doesn't exist
+                self.tasks = []
+                self.save_tasks()
+        except json.JSONDecodeError:
+            print("Error: Tasks file is corrupted. Starting with empty task list.")
+            self.tasks = []
+            self.save_tasks()
 
 def main():
     todo_list = TodoList()
